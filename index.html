@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ReitechLTD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/css.css" rel="stylesheet" type="text/css"/>
+        <script src="js/ajaxRecords.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="img/favIcon.png">
+    </head>
+    <body onload="ajaxGetRecords()">
+        <div id="toast"></div>
+        <div id="modelContainer">
+            <img id="close" src="img/close.png" alt="" onclick ="closeProductModel();editable = false;toggleEdit();"/>
+            <div id="model">
+                <div class="modelHeader">
+                    <div id="recordInfo">
+                    </div>
+                    <div  class="userInfo">
+                        <div><div class="userLabel">Account Id:</div><div contenteditable="false" class="userInfoInput" id="accountId"></div></div>
+                        <div><div class="userLabel">Customer:</div><div contenteditable="false" class="userInfoInput" id="customer"></div></div>
+                        <div><div class="userLabel">Address:</div><div contenteditable="false" class="userInfoInput" id="address"></div></div>
+                        <div><div class="userLabel">PostCode:</div><div contenteditable="false" class="userInfoInput" id="postcode"></div></div>
+                        <div><div class="userLabel">Ordered By:</div><div contenteditable="false" class="userInfoInput" id="orderBy"></div></div>
+                        <div><div class="userLabel">Invoice Id:</div><div contenteditable="false" class="userInfoInput" id="invoiceId"></div></div>
+                        <div><div class="userLabel">Notes:</div><div contenteditable="false" class="userInfoInput" id="notes"></div></div>
+                        <div><div class="userLabel">Price:</div><div contenteditable="false" class="userInfoInput" id="price"></div></div>
+                    </div>
+                    <div class="recordData" id="recordDataSelect">
+                    </div>
+                    <div>
+                        <button class= "edit" type="button" onclick="editable = !editable;toggleEdit();">Edit</button>
+                        <div id="saveButtonContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="line"></div>
+            <header><h1>ReitechLTD</h1></header>
+            <nav>
+                <div class = "sideNav">
+                    <div class = "searchBar" >
+                        <input  onkeypress="searchBar()" id="search_text" type="text" name="search_text" placeholder="Search..">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                    <div class="sort">
+                        <select  id = "selectSort" onchange="sort = 'new';ajaxProductSort()">
+                            <option value="" disabled selected>Sort By</option>
+                            <option value="new">Newest</option>
+                            <option value="old" >Oldest</option>
+                            <option value="low" >Lowest To Highest</option>
+                            <option value="high">Highest To Lowest</option>
+                        </select>
+                    </div>
+                    <button class= "newRecord" type="button" onclick="ajaxOpenProductModel(-1);editable = true;toggleEdit();">New Record</button>
+                </div>
+            </nav>
+            <main id ="recordDisplay">
+            </main>
+            <footer class="footer-distributed">
+                <div class="footer-left">
+
+                    <h3>Reitech<span>LTD</span></h3>
+                    <p class="footer-company-name">Company Name © 2020</p>
+                </div>
+                <div class="footerContent">
+                    <div>
+                        <i class="fa fa-map-marker"></i>
+                        <p><span>Dundalk 2nd</span> Co.Louth, Ireland</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-phone"></i>
+                        <p>+353 87 353 5365</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope"></i>
+                        <p><a href="mailto:D00222467@student.dkit.ie">D00222467@student.dkit.ie</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
